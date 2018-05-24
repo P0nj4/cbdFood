@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:carousel/carousel.dart';
+import 'dart:ui' as ui;
 
 void main() => runApp(new MyApp());
 
@@ -11,7 +12,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: new ThemeData(
         primarySwatch: Colors.blue,
-        primaryColor: Color(0xFFFAFAFA)
+        primaryColor: Color(0xFFFAFAFA),
+        fontFamily: 'BreeSerif'
       ),
       home: new MyHomePage(),
     );
@@ -43,27 +45,19 @@ class MyHomePage extends StatelessWidget {
           children: snapshot.data.documents
               .map((DocumentSnapshot doc) {
                 return new Stack(
+                  alignment: Alignment.center,
                   children: <Widget>[
                     new Image.network(doc['image_url'], height: 220.0, fit: BoxFit.cover),
-                    new Text(doc['name'],
+                    new ShadowText(doc['name'],
                       style: new TextStyle(
                         color: Colors.white,
-                        fontSize: 41.0
+                        fontSize: 32.0,
                       )
                     )
                   ],
                 );
               })
               .toList(),
-              // .map((netImage) =>
-              //     //new Image(image: netImage, height: 220.0, fit: BoxFit.cover))
-              //     new Stack(
-              //       children: <Widget>[
-              //         new Image(image: netImage, height: 220.0, fit: BoxFit.cover),
-              //         new Text(doc['name'])
-              //       ],
-              //     )
-              // ).toList(),
           displayDuration: const Duration(seconds: 3),
         ),
       );
@@ -88,7 +82,7 @@ class MyHomePage extends StatelessWidget {
             new Stack(
               children: <Widget>[
                 new Container(
-                  padding: EdgeInsets.only(bottom: 10.0),
+                  margin: EdgeInsets.only(bottom: 10.0),
                   child: asyncCarousel(),
                 ),
                 new Positioned(
@@ -111,5 +105,33 @@ class MyHomePage extends StatelessWidget {
           title: new Text("CBD Food"),
         ),
         body: test);
+  }
+}
+
+class ShadowText extends StatelessWidget {
+  ShadowText(this.data, { this.style }) : assert(data != null);
+
+  final String data;
+  final TextStyle style;
+
+  Widget build(BuildContext context) {
+    return new ClipRect(
+      child: new Stack(
+        children: [
+          new Positioned(
+            top: 2.0,
+            left: 2.0,
+            child: new Text(
+              data,
+              style: style.copyWith(color: Colors.black.withOpacity(0.5)),
+            ),
+          ),
+          new BackdropFilter(
+            filter: new ui.ImageFilter.blur(sigmaX: 2.0, sigmaY: 2.0),
+            child: new Text(data, style: style),
+          ),
+        ],
+      ),
+    );
   }
 }
