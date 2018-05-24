@@ -42,12 +42,28 @@ class MyHomePage extends StatelessWidget {
         child: new Carousel(
           children: snapshot.data.documents
               .map((DocumentSnapshot doc) {
-                return new NetworkImage(doc['image_url']);
+                return new Stack(
+                  children: <Widget>[
+                    new Image.network(doc['image_url'], height: 220.0, fit: BoxFit.cover),
+                    new Text(doc['name'],
+                      style: new TextStyle(
+                        color: Colors.white,
+                        fontSize: 41.0
+                      )
+                    )
+                  ],
+                );
               })
-              .toList()
-              .map((netImage) =>
-                  new Image(image: netImage, height: 220.0, fit: BoxFit.cover))
               .toList(),
+              // .map((netImage) =>
+              //     //new Image(image: netImage, height: 220.0, fit: BoxFit.cover))
+              //     new Stack(
+              //       children: <Widget>[
+              //         new Image(image: netImage, height: 220.0, fit: BoxFit.cover),
+              //         new Text(doc['name'])
+              //       ],
+              //     )
+              // ).toList(),
           displayDuration: const Duration(seconds: 3),
         ),
       );
@@ -79,7 +95,7 @@ class MyHomePage extends StatelessWidget {
                   bottom: 0.0,
                   right: -10.0,
                   child: new Image(
-                    image: new AssetImage('assets/featured.png'),
+                    image: new AssetImage('assets/images/featured.png'),
                     width: 106.0,
                     height: 35.0,
                   )
