@@ -9,10 +9,9 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: 'Flutter Demo',
       theme: new ThemeData(
-        primarySwatch: Colors.blue,
-        primaryColor: Color(0xFFFAFAFA),
-        fontFamily: 'BreeSerif'
-      ),
+          primarySwatch: Colors.blue,
+          primaryColor: Color(0xFFFAFAFA),
+          fontFamily: 'BreeSerif'),
       home: new MyHomePage(),
     );
   }
@@ -37,37 +36,40 @@ class MyHomePage extends StatelessWidget {
     );
 
     return new Scaffold(
-        appBar: new AppBar(
-          title: new Text("CBD Food"),
+      appBar: new AppBar(
+        title: new Text("CBD Food"),
+      ),
+      body: new Container(
+        child: new ListView(
+          children: <Widget>[
+            new Featured(),
+            new SizedBox(
+              height: 120.0,
+              child: new NewestGrid(),
+            )
+          ],
         ),
-        body: new Featured());
+      ),
+    );
   }
 }
 
-class MyApp2 extends StatelessWidget {
+class NewestGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final title = 'Grid List';
 
-    return new MaterialApp(
-      title: title,
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text(title),
-        ),
-        body: new GridView.count(
-          crossAxisCount: 1,
-          scrollDirection: Axis.horizontal,
-          children: new List.generate(100, (index) {
-            return new Center(
-              child: new Text(
-                'Item $index',
-                style: Theme.of(context).textTheme.headline,
-              ),
-            );
-          }),
-        ),
-      ),
+    return new GridView.count(
+      crossAxisCount: 1,
+      scrollDirection: Axis.horizontal,
+      children: new List.generate(100, (index) {
+        return new Center(
+          child: new Text(
+            'Item $index',
+            style: Theme.of(context).textTheme.headline,
+          ),
+        );
+      }),
     );
   }
 }
