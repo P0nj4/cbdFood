@@ -8,23 +8,21 @@ class Featured extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Container(
         child: new Stack(
-          children: <Widget>[
-            new Container(
-                margin: EdgeInsets.only(bottom: 10.0),
-                child: asyncCarousel(),
-              ),
-              new Positioned(
-                  bottom: 0.0,
-                  right: -10.0,
-                  child: new Image(
-                    image: new AssetImage('assets/images/featured.png'),
-                    width: 106.0,
-                    height: 35.0,
-                  )
-              ),
-          ],
-        )
-    );
+      children: <Widget>[
+        new Container(
+          margin: EdgeInsets.only(bottom: 10.0),
+          child: asyncCarousel(),
+        ),
+        new Positioned(
+            bottom: 0.0,
+            right: -10.0,
+            child: new Image(
+              image: new AssetImage('assets/images/featured.png'),
+              width: 106.0,
+              height: 35.0,
+            )),
+      ],
+    ));
   }
 
   Widget _carouselContent(AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -52,10 +50,11 @@ class Featured extends StatelessWidget {
 
   Widget asyncCarousel() {
     return new StreamBuilder<QuerySnapshot>(
-        stream: Firestore.instance.collection('featured').snapshots(),
-        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-          if (!snapshot.hasData) return new Text('Loading...');
-          return _carouselContent(snapshot);
-        });
+      stream: Firestore.instance.collection('featured').snapshots(),
+      builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        if (!snapshot.hasData) return new Text('Loading...');
+        return _carouselContent(snapshot);
+      },
+    );
   }
 }
