@@ -32,7 +32,7 @@ class MyHomePage extends StatelessWidget {
         children: [
           new Icon(
             Icons.star,
-            color: Colors.red[500],
+            color: Colors.blue[500],
           ),
           new Text('41'),
         ],
@@ -66,26 +66,14 @@ class NewestGridState extends State<NewestGrid> {
   List<Recipe> recipes;
 
   Future<List<Recipe>> _createDummyData() async {
-    return new Future<List<Recipe>>(() {
-      final test = Firestore.instance.collection('recepies');
-      final data = test.getDocuments().then((o) {
-        List<Recipe> rec = o.documents.map((document) {
+
+      final collection = Firestore.instance.collection('recepies');
+      final data = await collection.getDocuments();
+      final List<Recipe> rec = data.documents.map((document) {
           Map<String, dynamic> data = document.data;
-          return Recipe(data['name'], data['image_url'], null);
+          return Recipe(data['name'], data['image_url'], data["created"]);
         }).toList();
         return rec;
-      });
-    });
-
-    // final test = Firestore.instance.collection('recepies');
-    // final data = await test.getDocuments().then((o) {
-    //   List<Recipe> rec = o.documents.map((document) {
-    //     Map<String, dynamic> data = document.data;
-    //     return Recipe(data['name'], data['image_url'], null);
-    //   }).toList();
-    //   print(rec.first.name);
-    //   return rec;
-    // });
   }
 
   @override
@@ -93,7 +81,6 @@ class NewestGridState extends State<NewestGrid> {
     super.initState();
 
     _createDummyData().then((recipesResult) {
-      print('asdasdasdasdasd');
       setState(() {
         this.recipes = recipesResult;
       });
@@ -102,23 +89,24 @@ class NewestGridState extends State<NewestGrid> {
 
   @override
   Widget build(BuildContext context) {
+
+    Widget content = new GridView.count(
+      crossAxisCount: 1,
+      scrollDirection: Axis.horizontal,
+      children: new List.generate(this.recipes.length, (index) {
+        return new Center(
+          child: new Text(
+            this.recipes[index].name,
+            style: Theme.of(context).textTheme.headline,
+          ),
+        );
+      }),
+    );
+
     Widget _gridContent() {
       if (recipes == null) return Text('Loading...');
-      return Text('Working...');
+      return content;
     }
-
-    // Widget content = new GridView.count(
-    //     crossAxisCount: 1,
-    //     scrollDirection: Axis.horizontal,
-    //     children: new List.generate(this.recipes.length, (index) {
-    //       return new Center(
-    //         child: new Text(
-    //           'Item $index',
-    //           style: Theme.of(context).textTheme.headline,
-    //         ),
-    //       );
-    //     }),
-    //   );
 
     return new SizedBox(
       height: 120.0,
@@ -154,7 +142,7 @@ class NewestGrid2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //_createDummyData().then(onValue)
+
     return new SizedBox(
         height: 120.0,
         child: new StreamBuilder<QuerySnapshot>(
@@ -163,23 +151,11 @@ class NewestGrid2 extends StatelessWidget {
               .orderBy('created')
               .snapshots(),
           builder:
-              ((BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          ((BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (!snapshot.hasData) return new Text('Loading...');
             return new Text(snapshot.data.documents.first['name']);
           }),
         )
-        // child: new GridView.count(
-        //   crossAxisCount: 1,
-        //   scrollDirection: Axis.horizontal,
-        //   children: new List.generate(100, (index) {
-        //     return new Center(
-        //       child: new Text(
-        //         'Item $index',
-        //         style: Theme.of(context).textTheme.headline,
-        //       ),
-        //     );
-        //   }),
-        // ),
-        );
+    );
   }
 }
