@@ -64,11 +64,10 @@ class NewestGrid extends StatefulWidget {
 class NewestGridState extends State<NewestGrid> {
   List<Recipe> recipes;
 
-
   @override
   void initState() {
     super.initState();
-    Recipe.getAll().then((recipesResult) {
+    Recipe.getAll('created', 8).then((recipesResult) {
       setState(() {
         this.recipes = recipesResult;
       });
@@ -81,17 +80,27 @@ class NewestGridState extends State<NewestGrid> {
     Widget content = new GridView.count(
       crossAxisCount: 1,
       scrollDirection: Axis.horizontal,
-      children: new List.generate(this.recipes.length, (index) {
+      children: new List.generate(recipes != null ? recipes.length : 0, (index) {
         return new Center(
-          child: new Text(
-            this.recipes[index].name,
-            style: Theme.of(context).textTheme.headline,
+//          child: new Text(
+//            this.recipes[index].name,
+//            style: Theme.of(context).textTheme.headline,
+//          ),
+          child: new Column(
+            children: <Widget>[
+              new Expanded(child: new Image.network(recipes[index].imageUrl, fit: BoxFit.cover)
+              ),
+              new Text(
+                this.recipes[index].name,
+              )
+            ],
           ),
         );
       }),
     );
 
     Widget _gridContent() {
+      //TODO: the circular is taking all the space.
       if (recipes == null) return new CircularProgressIndicator();
       return content;
     }

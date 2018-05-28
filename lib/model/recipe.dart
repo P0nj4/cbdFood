@@ -21,10 +21,18 @@ class Recipe {
     });
   }
 
-  static Future<List<Recipe>> getAll() async {
+  static Future<List<Recipe>> getAll(String sortBy, int limit) async {
 
     final collection = Firestore.instance.collection('recipes');
-    final data = await collection.orderBy('created').getDocuments();
+    Query query = null;
+    //final data = await collection.orderBy('created').limit(limit).getDocuments();
+    if (sortBy != null) {
+      query = collection.orderBy(sortBy);
+    }
+    if (limit != null) {
+      query = query.limit(limit);
+    }
+    final data = await (query != null ? query : collection).getDocuments();
     final List<Recipe> rec = data.documents.map((document) {
       Map<String, dynamic> data = document.data;
       return Recipe(data['name'], data['image_url'], data["created"]);
