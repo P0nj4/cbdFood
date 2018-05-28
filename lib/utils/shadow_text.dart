@@ -16,6 +16,7 @@ class ShadowText extends StatelessWidget {
             left: 2.0,
             child: new Text(
               data,
+              textAlign: TextAlign.center,
               style: style.copyWith(color: Colors.black.withOpacity(0.5)),
             ),
           ),

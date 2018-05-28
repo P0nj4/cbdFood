@@ -50,7 +50,7 @@ class Featured extends StatelessWidget {
 
   Widget asyncCarousel() {
     return new StreamBuilder<QuerySnapshot>(
-      stream: Firestore.instance.collection('featured').snapshots(),
+      stream: Firestore.instance.collection('recipes').where('featured', isEqualTo: true).snapshots(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (!snapshot.hasData) return new Text('Loading...');
         return _carouselContent(snapshot);
