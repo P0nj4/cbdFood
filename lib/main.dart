@@ -1,4 +1,5 @@
 import 'package:cbd_food/home_components/featured.dart';
+import 'package:cbd_food/home_components/newest_grid.dart';
 import 'package:cbd_food/model/recipe.dart';
 import 'package:flutter/material.dart';
 
@@ -50,64 +51,6 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class NewestGrid extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return new NewestGridState();
-  }
-}
-
-class NewestGridState extends State<NewestGrid> {
-  List<Recipe> recipes;
-
-  @override
-  void initState() {
-    super.initState();
-    Recipe.getAll('created', 8).then((recipesResult) {
-      setState(() {
-        this.recipes = recipesResult;
-      });
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-
-    Widget content = new GridView.count(
-      crossAxisCount: 1,
-      scrollDirection: Axis.horizontal,
-      children: new List.generate(recipes != null ? recipes.length : 0, (index) {
-        return new Center(
-//          child: new Text(
-//            this.recipes[index].name,
-//            style: Theme.of(context).textTheme.headline,
-//          ),
-          child: new Column(
-            children: <Widget>[
-              new Expanded(child: new Image.network(recipes[index].imageUrl, fit: BoxFit.cover)
-              ),
-              new Text(
-                this.recipes[index].name,
-              )
-            ],
-          ),
-        );
-      }),
-    );
-
-    Widget _gridContent() {
-      //TODO: the circular is taking all the space.
-      if (recipes == null) return new CircularProgressIndicator();
-      return content;
-    }
-
-    return new SizedBox(
-      height: 120.0,
-      child: _gridContent(),
     );
   }
 }
