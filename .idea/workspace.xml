@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf710e38-6616-456c-b36a-3da46f2f624a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
@@ -18,20 +17,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.dart" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="44" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
+            <state relative-caret-position="368">
+              <caret line="70" column="27" lean-forward="true" selection-start-line="70" selection-start-column="27" selection-end-line="70" selection-end-column="27" />
+              <folding>
+                <element signature="e#2#58#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="newest_grid.dart" pinned="false" current-in-tab="true">
+      <file leaf-file-name="newest_grid.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/home_components/newest_grid.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="66" selection-start-line="2" selection-start-column="66" selection-end-line="2" selection-end-column="66" />
+            <state relative-caret-position="-826">
+              <caret line="11" column="21" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="21" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
               </folding>
@@ -91,8 +93,8 @@
         <option value="$PROJECT_DIR$/lib/utils/shadow_text.dart" />
         <option value="$PROJECT_DIR$/lib/model/recipe.dart" />
         <option value="$PROJECT_DIR$/lib/utils/rounded_corners_clipper_path.dart" />
-        <option value="$PROJECT_DIR$/lib/main.dart" />
         <option value="$PROJECT_DIR$/lib/home_components/newest_grid.dart" />
+        <option value="$PROJECT_DIR$/lib/main.dart" />
       </list>
     </option>
   </component>
@@ -248,7 +250,7 @@
       <window_info anchor="right" id="Palette" order="0" />
       <window_info anchor="bottom" id="Android Profiler" order="7" />
       <window_info id="Build Variants" order="0" side_tool="true" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.506447" side_tool="true" visible="true" weight="0.19426337" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.506447" side_tool="true" weight="0.19426337" />
       <window_info anchor="right" id="Maven Projects" order="1" weight="0.3295129" />
       <window_info anchor="bottom" id="Dart Analysis" order="9" weight="0.31343284" />
       <window_info anchor="right" id="Flutter Outline" order="2" weight="0.12034384" />
@@ -268,7 +270,7 @@
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.493553" visible="true" weight="0.19426337" />
       <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.50691247" side_tool="true" weight="0.19426337" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.506447" side_tool="true" visible="true" weight="0.19426337" />
       <window_info id="Captures" order="5" weight="0.3295129" />
       <window_info content_ui="combo" id="Project" order="7" visible="true" weight="0.17621776" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -287,13 +289,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/main.dart</url>
-          <line>55</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="dart-exception">
           <properties />
@@ -311,6 +306,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1815">
           <caret line="126" selection-start-line="126" selection-end-line="126" />
+          <folding>
+            <element signature="e#2#58#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -400,19 +398,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/main.dart">
+    <entry file="file://$PROJECT_DIR$/lib/home_components/newest_grid.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="44" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
+        <state relative-caret-position="-826">
+          <caret line="11" column="21" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/home_components/newest_grid.dart">
+    <entry file="file://$PROJECT_DIR$/lib/main.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="66" selection-start-line="2" selection-start-column="66" selection-end-line="2" selection-end-column="66" />
+        <state relative-caret-position="368">
+          <caret line="70" column="27" lean-forward="true" selection-start-line="70" selection-start-column="27" selection-end-line="70" selection-end-column="27" />
           <folding>
-            <element signature="e#0#44#0" expanded="true" />
+            <element signature="e#2#58#0" expanded="true" />
           </folding>
         </state>
       </provider>

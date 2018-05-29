@@ -48,6 +48,38 @@ class MyHomePage extends StatelessWidget {
           children: <Widget>[
             new Featured(),
             new NewestGrid(),
+            new Trending(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Trending extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return new TrendingState();
+  }
+}
+
+class TrendingState extends State<Trending> {
+  @override
+  Widget build(BuildContext context) {
+    return new Container(
+      color: Colors.grey[200],
+      child: new Container(
+        margin: EdgeInsets.only(top: 10.0),
+        padding: EdgeInsets.only(top: 7.0, left: 10.0),
+        color: Colors.white,
+        child: new Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            new Text('TRENDING',
+              style: new TextStyle(
+                fontSize: 20.0,
+              ),
+            )
           ],
         ),
       ),
