@@ -2,6 +2,7 @@ import 'package:cbd_food/home_components/featured.dart';
 import 'package:cbd_food/home_components/newest_grid.dart';
 import 'package:cbd_food/model/recipe.dart';
 import 'package:flutter/material.dart';
+import 'package:cbd_food/utils/rounded_corners_clipper_path.dart';
 
 void main() => runApp(new MyApp());
 
@@ -64,6 +65,20 @@ class Trending extends StatefulWidget {
 }
 
 class TrendingState extends State<Trending> {
+
+  List<Recipe> recipes;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Recipe.getAll('created', 20).then((recipes) {
+      setState(() {
+        this.recipes = recipes;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Container(
@@ -79,10 +94,61 @@ class TrendingState extends State<Trending> {
               style: new TextStyle(
                 fontSize: 20.0,
               ),
-            )
+            ),
+            _grid(),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _grid() {
+    final mediaQueryData = MediaQuery.of(context);
+
+    if (recipes == null) return new Text("Loading");
+//    return GridView.count(
+//      crossAxisCount: 2,
+//      scrollDirection: Axis.vertical,
+//      children: new List.generate(recipes.length, (index) {
+//        return Text('asda');
+//      })
+//    );
+    return new Column(
+          children: <Widget>[
+            new Row(
+              children: <Widget>[
+//                new Container(
+//                  width: mediaQueryData.size.width / 3,
+//                  height: 100.0,
+//                  color: Colors.black,
+//                  margin: EdgeInsets.only(bottom: 10.0),
+//                )
+                new Expanded(
+                    child: new Container(
+                      color: Colors.green,
+                      child: new Text('asdasdasd'),
+                    )
+                ),
+                new Expanded(
+                    child: new Container(
+                      color: Colors.yellow,
+                      child: new Text('asdasdasd'),
+                    )
+                )
+              ],
+            ),
+            new Row(
+              children: <Widget>[
+                new Container(
+                  width: mediaQueryData.size.width / 3,
+                  height: 100.0,
+                  color: Colors.black,
+                )
+              ],
+            )
+          ],
+
+        
     );
   }
 }
