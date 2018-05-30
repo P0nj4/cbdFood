@@ -27,31 +27,33 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaQueryData = MediaQuery.of(context);
 
-    Widget titleSection = new Container(
-      padding: const EdgeInsets.all(32.0),
-      child: new Row(
-        children: [
-          new Icon(
-            Icons.star,
-            color: Colors.blue[500],
-          ),
-          new Text('41'),
-        ],
-      ),
-    );
-
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("CBD Food"),
-      ),
+    appBar: new AppBar(
+      title: new Text("CBD Food"),
+      actions: <Widget>[
+        new SizedBox(
+          width: 100.0,
+        )
+      ],
+    ),
       body: new Container(
-        child: new ListView(
-          children: <Widget>[
-            new Featured(),
-            new NewestGrid(),
-            new Trending(),
-          ],
+        child: new SingleChildScrollView(
+          child: new Column(
+            children: <Widget>[
+                          new Featured(),
+                          new NewestGrid(),
+                          new Trending(),
+            ],
+          ),
         ),
+//        child: new ListView(
+//          cacheExtent: 300.0,
+//          children: <Widget>[
+//            new Featured(),
+//            new NewestGrid(),
+//            new Trending(),
+//          ],
+//        ),
       ),
     );
   }

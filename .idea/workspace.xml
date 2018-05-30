@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cf710e38-6616-456c-b36a-3da46f2f624a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cbd_food.iml" beforeDir="false" afterPath="$PROJECT_DIR$/cbd_food.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
@@ -21,8 +22,8 @@
       <file leaf-file-name="main.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="91" column="29" lean-forward="true" selection-start-line="91" selection-start-column="29" selection-end-line="91" selection-end-column="29" />
+            <state relative-caret-position="308">
+              <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
               </folding>
@@ -33,7 +34,7 @@
       <file leaf-file-name="newest_grid.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/home_components/newest_grid.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
+            <state relative-caret-position="1411">
               <caret line="83" column="10" selection-start-line="81" selection-start-column="9" selection-end-line="83" selection-end-column="10" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
@@ -66,7 +67,7 @@
       <file leaf-file-name="recipe.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/model/recipe.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
+            <state relative-caret-position="357">
               <caret line="21" column="3" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
@@ -105,9 +106,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="22" />
-    <option name="width" value="1131" />
+    <option name="width" value="1440" />
     <option name="height" value="878" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -118,6 +119,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -152,9 +156,6 @@
         </subPane>
         <option name="show-excluded-files" value="false" />
       </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -258,31 +259,31 @@
       <window_info anchor="bottom" id="Logcat" order="10" />
       <window_info id="Capture Tool" order="1" />
       <window_info id="Designer" order="2" />
-      <window_info anchor="bottom" id="Inspection Results" sideWeight="0.49641833" weight="0.22425033" />
       <window_info id="Structure" order="8" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="8" weight="0.25" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" weight="0.3295129" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49641833" weight="0.28943938" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49928367" weight="0.32985657" />
-      <window_info anchor="bottom" id="Messages" sideWeight="0.49856734" weight="0.32985657" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info id="Image Layers" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49212036" visible="true" weight="0.19426337" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.491404" visible="true" weight="0.19426337" />
       <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.5078797" side_tool="true" visible="true" weight="0.19426337" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.508596" side_tool="true" visible="true" weight="0.19426337" />
       <window_info id="Captures" order="5" weight="0.3295129" />
-      <window_info content_ui="combo" id="Project" order="7" visible="true" weight="0.17621776" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" content_ui="combo" id="Project" order="7" visible="true" weight="0.17621776" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="right" auto_hide="true" id="Flutter Inspector" order="10" sideWeight="0.49873096" visible="true" weight="0.1812321" />
+      <window_info anchor="right" auto_hide="true" id="Flutter Inspector" order="10" sideWeight="0.49873096" weight="0.1812321" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="7" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection Results" order="11" sideWeight="0.49641833" weight="0.22425033" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49856734" weight="0.32985657" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -293,12 +294,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/lib/main.dart</url>
-          <line>153</line>
+          <line>141</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/lib/main.dart</url>
-          <line>119</line>
+          <line>107</line>
           <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
@@ -315,6 +316,53 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/lib/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/home_components/newest_grid.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1411">
+          <caret line="83" column="10" selection-start-line="81" selection-start-column="9" selection-end-line="83" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/home_components/featured.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="23" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/utils/shadow_text.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/model/recipe.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="3" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/main.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1815">
@@ -386,7 +434,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/model/recipe.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
+        <state relative-caret-position="357">
           <caret line="21" column="3" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
@@ -413,7 +461,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/home_components/newest_grid.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
+        <state relative-caret-position="1411">
           <caret line="83" column="10" selection-start-line="81" selection-start-column="9" selection-end-line="83" selection-end-column="10" />
           <folding>
             <element signature="e#0#44#0" expanded="true" />
@@ -430,8 +478,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/main.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="91" column="29" lean-forward="true" selection-start-line="91" selection-start-column="29" selection-end-line="91" selection-end-column="29" />
+        <state relative-caret-position="308">
+          <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
           <folding>
             <element signature="e#0#56#0" expanded="true" />
           </folding>
