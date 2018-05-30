@@ -85,7 +85,7 @@ class TrendingState extends State<Trending> {
       color: Colors.grey[200],
       child: new Container(
         margin: EdgeInsets.only(top: 10.0),
-        padding: EdgeInsets.only(top: 7.0, left: 10.0),
+        padding: EdgeInsets.only(top: 7.0, left: 10.0, right: 10.0),
         color: Colors.white,
         child: new Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -95,6 +95,9 @@ class TrendingState extends State<Trending> {
                 fontSize: 20.0,
               ),
             ),
+            new Container(
+              height: 10.0,
+            ),
             _grid(),
           ],
         ),
@@ -103,52 +106,52 @@ class TrendingState extends State<Trending> {
   }
 
   Widget _grid() {
-    final mediaQueryData = MediaQuery.of(context);
-
     if (recipes == null) return new Text("Loading");
-//    return GridView.count(
-//      crossAxisCount: 2,
-//      scrollDirection: Axis.vertical,
-//      children: new List.generate(recipes.length, (index) {
-//        return Text('asda');
-//      })
-//    );
     return new Column(
-          children: <Widget>[
-            new Row(
-              children: <Widget>[
-//                new Container(
-//                  width: mediaQueryData.size.width / 3,
-//                  height: 100.0,
-//                  color: Colors.black,
-//                  margin: EdgeInsets.only(bottom: 10.0),
-//                )
-                new Expanded(
-                    child: new Container(
-                      color: Colors.green,
-                      child: new Text('asdasdasd'),
-                    )
-                ),
-                new Expanded(
-                    child: new Container(
-                      color: Colors.yellow,
-                      child: new Text('asdasdasd'),
-                    )
-                )
-              ],
-            ),
-            new Row(
-              children: <Widget>[
-                new Container(
-                  width: mediaQueryData.size.width / 3,
-                  height: 100.0,
-                  color: Colors.black,
-                )
-              ],
-            )
-          ],
-
-        
+      children: _test(),
     );
   }
+
+  List<Widget> _test() {
+    var rows = List<Widget>();
+
+    for (var i = 0; i < recipes.length; i+=2) {
+      if (i + 1 >= recipes.length) return rows;
+      Row row = new Row(
+        children: <Widget>[
+          new Expanded(
+            child: new Column(
+              children: <Widget>[
+                new ClipPath(
+                  clipper: new RoundedCornersClipperPath(cornerRadius: 8.0),
+                  child: new Image.network(recipes[i].imageUrl, height:150.0, fit: BoxFit.cover,),
+                ),
+                new Text(recipes[i].name),
+              ],
+            ),
+          ),
+          new Container(
+            width: 10.0,
+          ),
+          new Expanded(
+            child: new Column(
+              children: <Widget>[
+                new ClipPath(
+                  clipper: new RoundedCornersClipperPath(cornerRadius: 8.0),
+                  child: new Image.network(recipes[i+1].imageUrl, height:150.0, fit: BoxFit.cover,),
+                ),
+                new Text(recipes[i+1].name),
+              ],
+            ),
+          ),
+        ],
+      );
+      rows.add(new Container(
+        child: row,
+        padding: EdgeInsets.only(bottom: 15.0),
+      ));
+    }
+    return rows;
+  }
+
 }
