@@ -1,3 +1,4 @@
+import 'package:cbd_food/managers/recipes_manager.dart';
 import 'package:cbd_food/model/recipe.dart';
 import 'package:flutter/material.dart';
 import 'package:cbd_food/utils/rounded_corners_clipper_path.dart';
@@ -15,7 +16,7 @@ class NewestGridState extends State<NewestGrid> {
   @override
   void initState() {
     super.initState();
-    Recipe.getAll('created', 8).then((recipesResult) {
+    RecipesManager().newest().then((recipesResult) {
       setState(() {
         this.recipes = recipesResult;
       });

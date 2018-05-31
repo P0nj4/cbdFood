@@ -1,10 +1,44 @@
 import 'package:cbd_food/home_components/featured.dart';
 import 'package:cbd_food/home_components/newest_grid.dart';
+import 'package:cbd_food/managers/recipes_manager.dart';
 import 'package:cbd_food/model/recipe.dart';
 import 'package:flutter/material.dart';
 import 'package:cbd_food/utils/rounded_corners_clipper_path.dart';
+import 'package:async_loader/async_loader.dart';
 
 void main() => runApp(new MyApp());
+
+//TODO: implement globalKey<AsyncLoaderState>
+
+final GlobalKey<AsyncLoaderState> _asyncLoaderState =
+new GlobalKey<AsyncLoaderState>();
+
+var _asyncLoader = new AsyncLoader(
+  key: _asyncLoaderState,
+  initState: () async => await RecipesManager().getAll(),
+  renderLoad: () => new Center( child: CircularProgressIndicator(),),
+  renderError: ([error]) =>
+  new Text('Sorry, there was an error loading'),
+  renderSuccess: ({data}) => new Container(
+    child: new SingleChildScrollView(
+      child: new Column(
+        children: <Widget>[
+          new Featured(),
+          new NewestGrid(),
+          new Trending(),
+        ],
+      ),
+    ),
+//        child: new ListView(
+//          cacheExtent: 300.0,
+//          children: <Widget>[
+//            new Featured(),
+//            new NewestGrid(),
+//            new Trending(),
+//          ],
+//        ),
+  ),
+);
 
 class MyApp extends StatelessWidget {
   @override
@@ -36,25 +70,7 @@ class MyHomePage extends StatelessWidget {
         )
       ],
     ),
-      body: new Container(
-        child: new SingleChildScrollView(
-          child: new Column(
-            children: <Widget>[
-                          new Featured(),
-                          new NewestGrid(),
-                          new Trending(),
-            ],
-          ),
-        ),
-//        child: new ListView(
-//          cacheExtent: 300.0,
-//          children: <Widget>[
-//            new Featured(),
-//            new NewestGrid(),
-//            new Trending(),
-//          ],
-//        ),
-      ),
+      body: _asyncLoader,
     );
   }
 }
@@ -74,7 +90,7 @@ class TrendingState extends State<Trending> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Recipe.getAll('created', 20).then((recipes) {
+    RecipesManager().trending().then((recipes) {
       setState(() {
         this.recipes = recipes;
       });
@@ -155,5 +171,4 @@ class TrendingState extends State<Trending> {
     }
     return rows;
   }
-
 }

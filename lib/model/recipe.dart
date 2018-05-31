@@ -6,6 +6,7 @@ class Recipe {
   String name;
   String imageUrl;
   DateTime created;
+  bool featured;
 
   Recipe(String name, String imageUrl, DateTime created) {
     this.name = name;
