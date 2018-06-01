@@ -18,8 +18,9 @@ class RecipesManager {
       Map<String, dynamic> data = document.data;
       return Recipe(data['name'], data['image_url'], data["created"]);
     }).toList();
+
+    if (_recipes.isEmpty) throw "Something went wrong";
     return;
-    //TODO: find the way to return an error when the recipes list is empty
   }
 
   List<Recipe> newest() {
