@@ -30,7 +30,10 @@ class MyHomePage extends StatelessWidget {
               print(recipe.name);
             }),
             ),
-            new Trending(),
+            new Trending(onRecipePressed: ((recipe) {
+              print(recipe.name);
+            })),
+
           ],
         ),
       ),

@@ -4,7 +4,17 @@ import 'package:cbd_food/utils/rounded_corners_clipper_path.dart';
 import 'package:flutter/material.dart';
 import 'package:cbd_food/managers/recipes_manager.dart';
 
+typedef void TrendingRecipeCallback (Recipe recipe);
+
 class Trending extends StatelessWidget {
+
+  final TrendingRecipeCallback onRecipePressed;
+
+  Trending({
+    Key key,
+    @required this.onRecipePressed
+  }) : assert(onRecipePressed != null);
+
 
   List<Recipe> recipes = RecipesManager().trending();
 
@@ -49,28 +59,36 @@ class Trending extends StatelessWidget {
       Row row = new Row(
         children: <Widget>[
           new Expanded(
-            child: new Column(
-              children: <Widget>[
-                new ClipPath(
-                  clipper: new RoundedCornersClipperPath(cornerRadius: 8.0),
-                  child: new Image.network(recipes[i].imageUrl, height:150.0, fit: BoxFit.cover,),
-                ),
-                new Text(recipes[i].name),
-              ],
+            child: new GestureDetector(
+              onTap: () { onRecipePressed(recipes[i]); },
+              child: new Column(
+                children: <Widget>[
+                  new ClipPath(
+                    clipper: new RoundedCornersClipperPath(cornerRadius: 8.0),
+                    child: new Image.network(recipes[i].imageUrl, height:150.0, fit: BoxFit.cover,),
+                  ),
+                  new Text(recipes[i].name),
+                ],
+              ),
             ),
           ),
           new Container(
             width: 10.0,
           ),
           new Expanded(
-            child: new Column(
-              children: <Widget>[
-                new ClipPath(
-                  clipper: new RoundedCornersClipperPath(cornerRadius: 8.0),
-                  child: new Image.network(recipes[i+1].imageUrl, height:150.0, fit: BoxFit.cover,),
-                ),
-                new Text(recipes[i+1].name),
-              ],
+            child: new GestureDetector(
+              onTap: () {
+                onRecipePressed(recipes[i+1]);
+              },
+              child: new Column(
+                children: <Widget>[
+                  new ClipPath(
+                    clipper: new RoundedCornersClipperPath(cornerRadius: 8.0),
+                    child: new Image.network(recipes[i+1].imageUrl, height:150.0, fit: BoxFit.cover,),
+                  ),
+                  new Text(recipes[i+1].name),
+                ],
+              ),
             ),
           ),
         ],
