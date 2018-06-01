@@ -21,13 +21,6 @@ class RecipesManager {
     return;
   }
 
-  Future<List<Recipe>> featured() async {
-    if (recipes == null || recipes.length == 0) await getAll();
-    recipes.where((r) {
-      return r.featured;
-    });
-  }
-
   Future<List<Recipe>> newest() async {
     if (_recipes == null || _recipes.length == 0) await getAll();
     var sorted = new List<Recipe>.from(_recipes);

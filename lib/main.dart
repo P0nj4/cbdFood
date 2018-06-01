@@ -13,33 +13,6 @@ void main() => runApp(new MyApp());
 final GlobalKey<AsyncLoaderState> _asyncLoaderState =
 new GlobalKey<AsyncLoaderState>();
 
-var _asyncLoader = new AsyncLoader(
-  key: _asyncLoaderState,
-  initState: () async => await RecipesManager().getAll(),
-  renderLoad: () => new Center( child: CircularProgressIndicator(),),
-  renderError: ([error]) =>
-  new Text('Sorry, there was an error loading'),
-  renderSuccess: ({data}) => new Container(
-    child: new SingleChildScrollView(
-      child: new Column(
-        children: <Widget>[
-          new Featured(),
-          new NewestGrid(),
-          new Trending(),
-        ],
-      ),
-    ),
-//        child: new ListView(
-//          cacheExtent: 300.0,
-//          children: <Widget>[
-//            new Featured(),
-//            new NewestGrid(),
-//            new Trending(),
-//          ],
-//        ),
-  ),
-);
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -57,19 +30,62 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+
+  var _asyncLoader = new AsyncLoader(
+    key: _asyncLoaderState,
+    initState: () async => await RecipesManager().getAll(),
+    renderLoad: () => new Center( child: CircularProgressIndicator(),),
+    renderError: ([error]) => _errorBody(),
+    renderSuccess: ({data}) => _homeBody(),
+  );
+
+  static Widget _homeBody() {
+    return new Container(
+      child: new SingleChildScrollView(
+        child: new Column(
+          children: <Widget>[
+            new Featured(),
+            new NewestGrid(),
+            new Trending(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  static Widget _errorBody() {
+    return new Container(
+      color: Colors.grey[100],
+      child: new Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          new Text('Something went wrong, please try again'),
+          new Container(
+            height: 20.0,
+          ),
+          new RaisedButton(child: new Text('Reload'), color: Colors.red[400],
+            onPressed: () {
+              _asyncLoaderState.currentState.reloadState();
+            },
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final mediaQueryData = MediaQuery.of(context);
 
     return new Scaffold(
-    appBar: new AppBar(
-      title: new Text("CBD Food"),
-      actions: <Widget>[
-        new SizedBox(
-          width: 100.0,
-        )
-      ],
-    ),
+      appBar: new AppBar(
+        title: new Text("CBD Food"),
+        actions: <Widget>[
+          new SizedBox(
+            width: 100.0,
+          )
+        ],
+      ),
       body: _asyncLoader,
     );
   }
