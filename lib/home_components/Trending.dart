@@ -2,14 +2,11 @@
 import 'package:cbd_food/model/recipe.dart';
 import 'package:cbd_food/utils/rounded_corners_clipper_path.dart';
 import 'package:flutter/material.dart';
+import 'package:cbd_food/managers/recipes_manager.dart';
 
 class Trending extends StatelessWidget {
 
-  List<Recipe> recipes;
-
-  Trending(List<Recipe> recipes) {
-    this.recipes = recipes;
-  }
+  List<Recipe> recipes = RecipesManager().trending();
 
   @override
   Widget build(BuildContext context) {

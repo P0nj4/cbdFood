@@ -22,8 +22,7 @@ class RecipesManager {
     //TODO: find the way to return an error when the recipes list is empty
   }
 
-  Future<List<Recipe>> newest() async {
-    if (_recipes == null || _recipes.length == 0) await getAll();
+  List<Recipe> newest() {
     var sorted = new List<Recipe>.from(_recipes);
     sorted.sort((r1, r2) {
       return r1.created.compareTo(r2.created);

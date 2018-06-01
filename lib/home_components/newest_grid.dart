@@ -3,25 +3,9 @@ import 'package:cbd_food/model/recipe.dart';
 import 'package:flutter/material.dart';
 import 'package:cbd_food/utils/rounded_corners_clipper_path.dart';
 
-class NewestGrid extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    return new NewestGridState();
-  }
-}
+class NewestGrid extends StatelessWidget {
 
-class NewestGridState extends State<NewestGrid> {
-  List<Recipe> recipes;
-
-  @override
-  void initState() {
-    super.initState();
-    RecipesManager().newest().then((recipesResult) {
-      setState(() {
-        this.recipes = recipesResult;
-      });
-    });
-  }
+  List<Recipe> recipes = RecipesManager().newest();
 
   @override
   Widget build(BuildContext context) {

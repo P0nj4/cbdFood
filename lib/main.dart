@@ -8,8 +8,6 @@ import 'package:async_loader/async_loader.dart';
 
 void main() => runApp(new MyApp());
 
-//TODO: implement globalKey<AsyncLoaderState>
-
 final GlobalKey<AsyncLoaderState> _asyncLoaderState =
 new GlobalKey<AsyncLoaderState>();
 
@@ -46,7 +44,7 @@ class MyHomePage extends StatelessWidget {
           children: <Widget>[
             new Featured(),
             new NewestGrid(),
-            new Trending(RecipesManager().trending()),
+            new Trending(),
           ],
         ),
       ),
