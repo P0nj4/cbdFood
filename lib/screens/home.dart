@@ -26,7 +26,10 @@ class MyHomePage extends StatelessWidget {
         child: new Column(
           children: <Widget>[
             new Featured(),
-            new NewestGrid(),
+            new NewestGrid(onRecipePressed: ((recipe) {
+              print(recipe.name);
+            }),
+            ),
             new Trending(),
           ],
         ),

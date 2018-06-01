@@ -3,7 +3,17 @@ import 'package:cbd_food/model/recipe.dart';
 import 'package:flutter/material.dart';
 import 'package:cbd_food/utils/rounded_corners_clipper_path.dart';
 
+typedef void NewestRecipeTapCallback (Recipe recipe);
+
 class NewestGrid extends StatelessWidget {
+
+  final NewestRecipeTapCallback onRecipePressed;
+
+  NewestGrid({
+    Key key,
+    @required this.onRecipePressed
+  }) : assert(onRecipePressed != null);
+
 
   List<Recipe> recipes = RecipesManager().newest();
 
@@ -16,6 +26,11 @@ class NewestGrid extends StatelessWidget {
       childAspectRatio: 180.0 / 130.0,
       children: new List.generate(recipes != null ? recipes.length : 0, (index) {
         return
+        new GestureDetector(
+          onTap: () {
+            onRecipePressed(recipes[index]);
+          },
+          child:
           new Container(
             padding: EdgeInsets.all(5.0),
             child: new Center(
@@ -43,7 +58,9 @@ class NewestGrid extends StatelessWidget {
                 ],
               ),
             ),
-          );
+          ),
+
+        );
       }),
     );
 
