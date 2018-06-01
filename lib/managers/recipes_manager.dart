@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:cbd_food/model/recipe.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
 
 class RecipesManager {
 

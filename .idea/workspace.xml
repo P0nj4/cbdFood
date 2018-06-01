@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf710e38-6616-456c-b36a-3da46f2f624a" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/managers/recipes_manager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/managers/recipes_manager.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
@@ -17,13 +19,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.dart" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+            <state relative-caret-position="51">
+              <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
               <folding>
-                <element signature="e#0#56#0" expanded="true" />
+                <element signature="e#1#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/screens/home.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-412">
+              <caret line="9" column="34" lean-forward="true" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+              <folding>
+                <element signature="e#1#57#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -41,11 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="recipes_manager.dart" pinned="false" current-in-tab="true">
+      <file leaf-file-name="recipes_manager.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/managers/recipes_manager.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="21" column="55" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
+            <state relative-caret-position="34">
+              <caret line="2" column="54" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -95,9 +109,10 @@
         <option value="$PROJECT_DIR$/lib/model/recipe.dart" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/lib/home_components/newest_grid.dart" />
-        <option value="$PROJECT_DIR$/lib/main.dart" />
         <option value="$PROJECT_DIR$/lib/home_components/Trending.dart" />
         <option value="$PROJECT_DIR$/lib/managers/recipes_manager.dart" />
+        <option value="$PROJECT_DIR$/lib/screens/home.dart" />
+        <option value="$PROJECT_DIR$/lib/main.dart" />
       </list>
     </option>
   </component>
@@ -131,12 +146,6 @@
               <item name="cbdFood" type="b2602c69:ProjectViewProjectNode" />
               <item name="cbdFood" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cbdFood" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cbdFood" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="home_components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cbdFood" type="b2602c69:ProjectViewProjectNode" />
@@ -264,11 +273,11 @@
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info id="Image Layers" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48782235" visible="true" weight="0.19426337" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48782235" visible="true" weight="0.19426337" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.51217765" side_tool="true" visible="true" weight="0.19426337" />
       <window_info id="Captures" order="5" weight="0.3295129" />
-      <window_info content_ui="combo" id="Project" order="7" visible="true" weight="0.17621776" />
+      <window_info active="true" content_ui="combo" id="Project" order="7" visible="true" weight="0.17621776" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="right" auto_hide="true" id="Flutter Inspector" order="10" sideWeight="0.49873096" weight="0.1812321" />
@@ -300,26 +309,12 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/utils/shadow_text.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/model/recipe.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="3" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/main.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1815">
           <caret line="126" selection-start-line="126" selection-end-line="126" />
           <folding>
-            <element signature="e#0#56#0" expanded="true" />
+            <element signature="e#1#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -409,7 +404,7 @@
         <state relative-caret-position="187">
           <caret line="11" column="19" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="22" />
           <folding>
-            <element signature="e#0#56#0" expanded="true" />
+            <element signature="e#1#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -471,7 +466,7 @@
         <state relative-caret-position="153">
           <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
           <folding>
-            <element signature="e#0#56#0" expanded="true" />
+            <element signature="e#1#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -488,7 +483,7 @@
         <state relative-caret-position="476">
           <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
           <folding>
-            <element signature="e#0#56#0" expanded="true" />
+            <element signature="e#1#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -532,7 +527,7 @@
         <state relative-caret-position="1815">
           <caret line="126" selection-start-line="126" selection-end-line="126" />
           <folding>
-            <element signature="e#0#56#0" expanded="true" />
+            <element signature="e#1#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -654,16 +649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/home_components/Trending.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -676,10 +661,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/managers/recipes_manager.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="21" column="55" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
+        <state relative-caret-position="34">
+          <caret line="2" column="54" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/flutter/packages/flutter/lib/src/material/app_bar.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="157" column="27" selection-start-line="157" selection-start-column="14" selection-end-line="157" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/screens/home.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-412">
+          <caret line="9" column="34" lean-forward="true" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+          <folding>
+            <element signature="e#1#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+          <folding>
+            <element signature="e#1#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
