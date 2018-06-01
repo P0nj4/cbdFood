@@ -19,6 +19,7 @@ class RecipesManager {
       return Recipe(data['name'], data['image_url'], data["created"]);
     }).toList();
     return;
+    //TODO: find the way to return an error when the recipes list is empty
   }
 
   Future<List<Recipe>> newest() async {
@@ -31,9 +32,7 @@ class RecipesManager {
     return sorted.sublist(0, sorted.length > limit ? limit : sorted.length - 1);
   }
 
-  Future<List<Recipe>> trending() async {
-    if (_recipes == null || _recipes.length == 0) await getAll();
-
+  List<Recipe> trending() {
     var shuffled = new List<Recipe>.from(_recipes);
     shuffled.shuffle();
 
