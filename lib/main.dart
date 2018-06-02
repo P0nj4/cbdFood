@@ -69,9 +69,9 @@ class _RecipeDetailState extends State<RecipeDetail> {
                   const DecoratedBox(
                     decoration: const BoxDecoration(
                       gradient: const LinearGradient(
-                        begin: const Alignment(0.0, -0.5),
-                        end: const Alignment(0.0, 0.9),
-                        colors: const <Color>[Color(0x80ffffff), Color(0x10ffffff), Color(0x00ffffff)],
+                        begin: const Alignment(0.0, -0.7),
+                        end: const Alignment(0.0, -0.2),
+                        colors: const <Color>[Color(0x90ffffff), Color(0x00ffffff)],
                       ),
                     ),
                   ),
@@ -79,8 +79,70 @@ class _RecipeDetailState extends State<RecipeDetail> {
               ),
             ),
           ),
+          new SliverSafeArea(
+            top: false,
+            sliver: new SliverList(
+               delegate: SliverChildListDelegate([
+                 _description(),
+                 _ingredients(),
+               ]),
+            ),
+          )
         ],
 //        controller: _scrollController,
+      ),
+    );
+  }
+}
+
+class _description extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Container(
+      color: Colors.grey[200],
+      padding: EdgeInsets.only(bottom: 20.0),
+      child: new Container(
+        padding: EdgeInsets.all(10.0),
+        color: Colors.white,
+        child: new Text('Any affordable virgin olive oil works nicely for this recipe. If you plan on using your Canna Oil for salad dressings or pasta, we recommend you use a fruity extra-virgin olive oil.',
+            style: new TextStyle(
+              fontSize: 15.0,
+              color: Color(0xFF9498A1),
+            ),
+        ),
+      ),
+    );
+  }
+}
+
+class _ingredients extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Container(
+      color: Colors.grey[200],
+      padding: EdgeInsets.only(left: 10.0, right: 10.0),
+      child: new Container(
+        color: Colors.white,
+        padding: EdgeInsets.all(10.0),
+        child: new Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            new Text('Ingredients',
+            textAlign: TextAlign.start,
+            style: TextStyle(
+              color: Color(0xFF161616),
+              fontSize: 22.0
+            ),
+            ),
+            new Row(
+              children: <Widget>[
+                new Expanded(child: new Text('2 Servings')),
+                new IconButton(icon: new Icon(Icons.add), onPressed: null),
+                new IconButton(icon: new Icon(Icons.restaurant), onPressed: null)
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
