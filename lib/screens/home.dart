@@ -5,12 +5,16 @@ import 'package:cbd_food/managers/recipes_manager.dart';
 import 'package:cbd_food/home_components/Trending.dart';
 import 'package:async_loader/async_loader.dart';
 import 'package:flutter/material.dart';
+import 'package:cbd_food/main.dart';
+import 'package:cbd_food/model/recipe.dart';
 
 final GlobalKey<AsyncLoaderState> _asyncLoaderState =
 new GlobalKey<AsyncLoaderState>();
 
 
 class MyHomePage extends StatelessWidget {
+
+  static BuildContext context;
 
   var _asyncLoader = new AsyncLoader(
     key: _asyncLoaderState,
@@ -27,11 +31,11 @@ class MyHomePage extends StatelessWidget {
           children: <Widget>[
             new Featured(),
             new NewestGrid(onRecipePressed: ((recipe) {
-              print(recipe.name);
+              _pushRecipeDetail(recipe);
             }),
             ),
             new Trending(onRecipePressed: ((recipe) {
-              print(recipe.name);
+              _pushRecipeDetail(recipe);
             })),
 
           ],
@@ -60,8 +64,17 @@ class MyHomePage extends StatelessWidget {
     );
   }
 
+  static void _pushRecipeDetail(Recipe recipe) {
+    print(recipe.name);
+    Navigator.push(
+      context,
+      new MaterialPageRoute(builder: (context) => new RecipeDetail(recipe: recipe)),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    MyHomePage.context = context;
     return new Scaffold(
       floatingActionButton: new Text('asdasd'),
       appBar: new AppBar(
