@@ -13,6 +13,7 @@ dependencies:
   carousel: ^0.1.0
   shared_preferences: 0.4.1
   async_loader: ^0.1.1
+  font_awesome_flutter: ^7.0.0
 
 dev_dependencies:
   flutter_test:

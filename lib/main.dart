@@ -2,6 +2,7 @@
 import 'package:cbd_food/model/recipe.dart';
 import 'package:flutter/material.dart';
 import 'package:cbd_food/screens/home.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() => runApp(new MyApp());
 
@@ -136,11 +137,41 @@ class _ingredients extends StatelessWidget {
             ),
             new Row(
               children: <Widget>[
-                new Expanded(child: new Text('2 Servings')),
-                new IconButton(icon: new Icon(Icons.add), onPressed: null),
-                new IconButton(icon: new Icon(Icons.restaurant), onPressed: null)
+                new Expanded(
+                    child: new Text('2 Servings',
+                    style: new TextStyle(
+                      fontSize: 15.0,
+                      color: Color(0xFF9498A1),
+                    ),
+                    )
+                ),
+                new IconButton(icon: new Icon(FontAwesomeIcons.plusSquare), color: Color(0xFF00ADB2), iconSize: 20.0, onPressed: () {
+                  print('add');
+                }),
+                new IconButton(icon: new Icon(FontAwesomeIcons.minusSquare), color: Color(0xFF00ADB2), iconSize: 20.0, onPressed: () {
+                  print('substract');
+                }),
               ],
-            )
+            ),
+            new Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: new Row(
+                children: <Widget>[
+                  new Icon(FontAwesomeIcons.solidCheckSquare, color: Color(0xFF00ADB2), size: 15.0,),
+                  new Padding(
+                    padding: const EdgeInsets.only(left: 5.0),
+                    child: new Text('15 ounces of cannellini beans, drained and rinsed',
+                      style: new TextStyle(
+                        color: Color(0xFF161616),
+                        fontSize: 11.0,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+
           ],
         ),
       ),
