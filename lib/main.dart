@@ -145,7 +145,7 @@ class _ingredients extends StatelessWidget {
                     ),
                     )
                 ),
-                new IconButton(icon: new Icon(FontAwesomeIcons.plusSquare), color: Color(0xFF00ADB2), iconSize: 20.0, onPressed: () {
+                new IconButton(icon: new Icon(FontAwesomeIcons.plusSquare), color: Color(0xFF00ADB2), highlightColor: Colors.red, splashColor: Colors.yellow, iconSize: 20.0, onPressed: () {
                   print('add');
                 }),
                 new IconButton(icon: new Icon(FontAwesomeIcons.minusSquare), color: Color(0xFF00ADB2), iconSize: 20.0, onPressed: () {
@@ -153,30 +153,48 @@ class _ingredients extends StatelessWidget {
                 }),
               ],
             ),
-            new Padding(
-              padding: const EdgeInsets.only(top: 8.0),
-              child: new Row(
-                children: <Widget>[
-                  new Icon(FontAwesomeIcons.solidCheckSquare, color: Color(0xFF00ADB2), size: 15.0,),
-                  new Padding(
-                    padding: const EdgeInsets.only(left: 5.0),
-                    child: new Text('15 ounces of cannellini beans, drained and rinsed',
-                      style: new TextStyle(
-                        color: Color(0xFF161616),
-                        fontSize: 11.0,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-
+            _ingredient(ingredient: '15 ounces of cannellini beans, drained and rinsed'),
+            _ingredient(ingredient: '1 1⁄4 teaspoons curry powder'),
+            _ingredient(ingredient: '1⁄2 teaspoon kosher salt'),
+            _ingredient(ingredient: '15 ounces of cannellini beans, drained and rinsed'),
           ],
         ),
       ),
     );
   }
+}
+
+class _ingredient extends StatelessWidget {
+  final String ingredient;
+
+  _ingredient({
+    Key key,
+    this.ingredient
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return new Padding(
+      // ignore: const_with_non_constant_argument
+      padding: const EdgeInsets.only(top: 7.0),
+      child: new Row(
+        children: <Widget>[
+          new Icon(FontAwesomeIcons.solidCheckSquare, color: Color(0xFF00ADB2), size: 15.0,),
+          new Padding(
+            padding: const EdgeInsets.only(left: 5.0),
+            child: new Text(ingredient,
+              style: new TextStyle(
+                color: Color(0xFF161616),
+                fontSize: 11.0,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+
 }
 
 class ArcClipper extends CustomClipper<Path> {
