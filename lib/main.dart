@@ -50,53 +50,65 @@ class _RecipeDetailState extends State<RecipeDetail> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: new CustomScrollView(
+      body: new Container(
+        color: Colors.grey[200],
+        child: new CustomScrollView(
 //        physics: const AlwaysScrollableScrollPhysics(), // new
-        slivers: <Widget>[
-          new SliverAppBar(
-            title: Text(widget.recipe.name),
-            floating: false,
-            pinned: true,
-            expandedHeight: 250.0,
-            flexibleSpace: new FlexibleSpaceBar(
-              background:
-              new Stack(
-                fit: StackFit.expand,
-                children: <Widget>[
-                  new ClipPath(
-                    clipper: new ArcClipper(),
-                    child: new Image.network(widget.recipe.imageUrl, fit: BoxFit.cover,),
-                  ),
-                  const DecoratedBox(
-                    decoration: const BoxDecoration(
-                      gradient: const LinearGradient(
-                        begin: const Alignment(0.0, -0.7),
-                        end: const Alignment(0.0, -0.2),
-                        colors: const <Color>[Color(0x90ffffff), Color(0x00ffffff)],
+          slivers: <Widget>[
+            new SliverAppBar(
+              title: Text(widget.recipe.name),
+              floating: false,
+              pinned: true,
+              expandedHeight: 250.0,
+              flexibleSpace: new FlexibleSpaceBar(
+                background:
+                new Stack(
+                  fit: StackFit.expand,
+                  children: <Widget>[
+                    new ClipPath(
+                      clipper: new ArcClipper(),
+                      child: new Image.network(widget.recipe.imageUrl, fit: BoxFit.cover,),
+                    ),
+                    const DecoratedBox(
+                      decoration: const BoxDecoration(
+                        gradient: const LinearGradient(
+                          begin: const Alignment(0.0, -0.7),
+                          end: const Alignment(0.0, -0.2),
+                          colors: const <Color>[Color(0x90ffffff), Color(0x00ffffff)],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-          new SliverSafeArea(
-            top: false,
-            sliver: new SliverList(
-               delegate: SliverChildListDelegate([
-                 _description(),
-                 _ingredients(),
-               ]),
-            ),
-          )
-        ],
+            new SliverSafeArea(
+              top: false,
+              sliver: new SliverList(
+                delegate: SliverChildListDelegate([
+                  _Description(),
+                  _Ingredients(),
+                  new Container(
+                    color: Colors.grey[200],
+                    height: 20.0,
+                  ),
+                  _Method(),
+                  new Container(
+                    color: Colors.grey[200],
+                    height: 20.0,
+                  ),
+                ]),
+              ),
+            )
+          ],
 //        controller: _scrollController,
+        ),
       ),
     );
   }
 }
 
-class _description extends StatelessWidget {
+class _Description extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Container(
@@ -106,17 +118,22 @@ class _description extends StatelessWidget {
         padding: EdgeInsets.all(10.0),
         color: Colors.white,
         child: new Text('Any affordable virgin olive oil works nicely for this recipe. If you plan on using your Canna Oil for salad dressings or pasta, we recommend you use a fruity extra-virgin olive oil.',
-            style: new TextStyle(
-              fontSize: 15.0,
-              color: Color(0xFF9498A1),
-            ),
+          style: new TextStyle(
+            fontSize: 15.0,
+            color: Color(0xFF9498A1),
+          ),
         ),
       ),
     );
   }
 }
 
-class _ingredients extends StatelessWidget {
+class _GrayContainer extends StatelessWidget {
+
+  final Widget child;
+
+  _GrayContainer({Key key, @required this.child});
+
   @override
   Widget build(BuildContext context) {
     return new Container(
@@ -125,49 +142,84 @@ class _ingredients extends StatelessWidget {
       child: new Container(
         color: Colors.white,
         padding: EdgeInsets.all(10.0),
-        child: new Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            new Text('Ingredients',
-            textAlign: TextAlign.start,
-            style: TextStyle(
-              color: Color(0xFF161616),
-              fontSize: 22.0
-            ),
-            ),
-            new Row(
-              children: <Widget>[
-                new Expanded(
-                    child: new Text('2 Servings',
-                    style: new TextStyle(
-                      fontSize: 15.0,
-                      color: Color(0xFF9498A1),
-                    ),
-                    )
-                ),
-                new IconButton(icon: new Icon(FontAwesomeIcons.plusSquare), color: Color(0xFF00ADB2), highlightColor: Colors.red, splashColor: Colors.yellow, iconSize: 20.0, onPressed: () {
-                  print('add');
-                }),
-                new IconButton(icon: new Icon(FontAwesomeIcons.minusSquare), color: Color(0xFF00ADB2), iconSize: 20.0, onPressed: () {
-                  print('substract');
-                }),
-              ],
-            ),
-            _ingredient(ingredient: '15 ounces of cannellini beans, drained and rinsed'),
-            _ingredient(ingredient: '1 1⁄4 teaspoons curry powder'),
-            _ingredient(ingredient: '1⁄2 teaspoon kosher salt'),
-            _ingredient(ingredient: '15 ounces of cannellini beans, drained and rinsed'),
-          ],
-        ),
+        child: this.child,
       ),
     );
   }
 }
 
-class _ingredient extends StatelessWidget {
+class _Ingredients extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return _GrayContainer(
+      child: new Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          new Text('Ingredients',
+            textAlign: TextAlign.start,
+            style: TextStyle(
+                color: Color(0xFF161616),
+                fontSize: 22.0
+            ),
+          ),
+          new Row(
+            children: <Widget>[
+              new Expanded(
+                  child: new Text('2 Servings',
+                    style: new TextStyle(
+                      fontSize: 15.0,
+                      color: Color(0xFF9498A1),
+                    ),
+                  )
+              ),
+              new IconButton(icon: new Icon(FontAwesomeIcons.plusSquare), color: Color(0xFF00ADB2), highlightColor: Colors.red, splashColor: Colors.yellow, iconSize: 20.0, onPressed: () {
+                print('add');
+              }),
+              new IconButton(icon: new Icon(FontAwesomeIcons.minusSquare), color: Color(0xFF00ADB2), iconSize: 20.0, onPressed: () {
+                print('substract');
+              }),
+            ],
+          ),
+          _IngredientItem(ingredient: '15 ounces of cannellini beans, drained and rinsed'),
+          _IngredientItem(ingredient: '1 1⁄4 teaspoons curry powder'),
+          _IngredientItem(ingredient: '1⁄2 teaspoon kosher salt'),
+          _IngredientItem(ingredient: '15 ounces of cannellini beans, drained and rinsed'),
+        ],
+      ),
+    );
+  }
+}
+
+class _Method extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new _GrayContainer(
+      child: new Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          new Padding(
+            padding: const EdgeInsets.only(bottom: 15.0),
+            child: new Text('Method',
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                  color: Color(0xFF161616),
+                  fontSize: 22.0
+              ),
+            ),
+          ),
+          _MethodItem(index: '1', text: 'In the bowl of a food processor fitted with a metal blade, pulse the beans, garlic, curry powder, salt, cumin, paprika, and white pepper until smooth and thoroughly combined, scraping the sides of the bowl as needed.'),
+          _MethodItem(index: '2', text: 'In a measuring cup with a spout, combine the cannaoil, grape-seed oil, and lemon juice.'),
+          _MethodItem(index: '3', text: 'In a measuring cup with a spout')
+        ],
+      ),
+    );
+  }
+}
+
+class _IngredientItem extends StatelessWidget {
   final String ingredient;
 
-  _ingredient({
+  _IngredientItem({
     Key key,
     this.ingredient
   });
@@ -193,8 +245,37 @@ class _ingredient extends StatelessWidget {
       ),
     );
   }
+}
 
+class _MethodItem extends StatelessWidget {
 
+  final String index;
+  final String text;
+
+  _MethodItem({Key key, this.index, this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return new Row(
+      verticalDirection: VerticalDirection.down,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        new Text('$index.',
+          textAlign: TextAlign.start,
+          style: new TextStyle(fontSize: 15.0, color: Color(0xFF161616)),
+        ),
+        new Expanded(
+          child: new Padding(
+            padding: const EdgeInsets.only(top: 2.0, left: 5.0),
+            child: new Text(text,
+              maxLines: 10,
+              style: new TextStyle(fontSize: 11.0, color: Color(0xFF161616)),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 }
 
 class ArcClipper extends CustomClipper<Path> {
