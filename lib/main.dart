@@ -59,21 +59,18 @@ class _RecipeDetailState extends State<RecipeDetail> {
               title: Text(widget.recipe.name),
               floating: false,
               pinned: true,
-              expandedHeight: 250.0,
+              expandedHeight: 200.0,
               flexibleSpace: new FlexibleSpaceBar(
                 background:
                 new Stack(
                   fit: StackFit.expand,
                   children: <Widget>[
-                    new ClipPath(
-                      clipper: new ArcClipper(),
-                      child: new Image.network(widget.recipe.imageUrl, fit: BoxFit.cover,),
-                    ),
+                    Image.network(widget.recipe.imageUrl, fit: BoxFit.cover,),
                     const DecoratedBox(
                       decoration: const BoxDecoration(
                         gradient: const LinearGradient(
-                          begin: const Alignment(0.0, -0.7),
-                          end: const Alignment(0.0, -0.2),
+                          begin: const Alignment(0.0, -0.5),
+                          end: const Alignment(0.0, -0.1),
                           colors: const <Color>[Color(0x90ffffff), Color(0x00ffffff)],
                         ),
                       ),
@@ -149,6 +146,9 @@ class _GrayContainer extends StatelessWidget {
 }
 
 class _Ingredients extends StatelessWidget {
+
+  List<String> ingredientsList = ['15 ounces of cannellini beans, drained and rinsed', '1 1⁄4 teaspoons curry powder', '1⁄2 teaspoon kosher salt', '15 ounces of cannellini beans, drained and rinsed'];
+
   @override
   Widget build(BuildContext context) {
     return _GrayContainer(
@@ -180,10 +180,12 @@ class _Ingredients extends StatelessWidget {
               }),
             ],
           ),
-          _IngredientItem(ingredient: '15 ounces of cannellini beans, drained and rinsed'),
-          _IngredientItem(ingredient: '1 1⁄4 teaspoons curry powder'),
-          _IngredientItem(ingredient: '1⁄2 teaspoon kosher salt'),
-          _IngredientItem(ingredient: '15 ounces of cannellini beans, drained and rinsed'),
+          new Column(
+            children: ingredientsList.map((ing) {
+              //Widget _IngredientItem(ingredient: (String)ing);
+              return new _IngredientItem(ingredient: ing);
+            }).toList(),
+          )
         ],
       ),
     );
@@ -191,6 +193,12 @@ class _Ingredients extends StatelessWidget {
 }
 
 class _Method extends StatelessWidget {
+
+  List<String> methodSteps = ['In the bowl of a food processor fitted with a metal blade, pulse the beans, garlic, curry powder, salt, cumin, paprika, and white pepper until smooth and thoroughly combined, scraping the sides of the bowl as needed.',
+  'In a measuring cup with a spout, combine the cannaoil, grape-seed oil, and lemon juice.',
+  'With the machine running, add the cannaoil mixture in a steady stream through the feed tube, scraping the cup to ensure no oil is left. Blend for 1 minute to incorporate the oil.',
+  'Transfer the dip to a serving bowl and top with the parsley and a drizzle of olive oil.'];
+
   @override
   Widget build(BuildContext context) {
     return new _GrayContainer(
@@ -207,12 +215,20 @@ class _Method extends StatelessWidget {
               ),
             ),
           ),
-          _MethodItem(index: '1', text: 'In the bowl of a food processor fitted with a metal blade, pulse the beans, garlic, curry powder, salt, cumin, paprika, and white pepper until smooth and thoroughly combined, scraping the sides of the bowl as needed.'),
-          _MethodItem(index: '2', text: 'In a measuring cup with a spout, combine the cannaoil, grape-seed oil, and lemon juice.'),
-          _MethodItem(index: '3', text: 'In a measuring cup with a spout')
+          new Column(
+            children: methodInputWidgets()
+          ),
         ],
       ),
     );
+  }
+
+  List<Widget> methodInputWidgets() {
+    List<Widget> widgets = [];
+    for (var i = 0; i < methodSteps.length; i++) {
+      widgets.add(_MethodItem(index: i+1, text: methodSteps[i]));
+    }
+    return widgets;
   }
 }
 
@@ -237,7 +253,7 @@ class _IngredientItem extends StatelessWidget {
             child: new Text(ingredient,
               style: new TextStyle(
                 color: Color(0xFF161616),
-                fontSize: 11.0,
+                fontSize: 12.0,
               ),
             ),
           ),
@@ -249,58 +265,34 @@ class _IngredientItem extends StatelessWidget {
 
 class _MethodItem extends StatelessWidget {
 
-  final String index;
+  final int index;
   final String text;
 
   _MethodItem({Key key, this.index, this.text});
 
   @override
   Widget build(BuildContext context) {
-    return new Row(
-      verticalDirection: VerticalDirection.down,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        new Text('$index.',
-          textAlign: TextAlign.start,
-          style: new TextStyle(fontSize: 15.0, color: Color(0xFF161616)),
-        ),
-        new Expanded(
-          child: new Padding(
-            padding: const EdgeInsets.only(top: 2.0, left: 5.0),
-            child: new Text(text,
-              maxLines: 10,
-              style: new TextStyle(fontSize: 11.0, color: Color(0xFF161616)),
+    return new Padding(
+      padding: const EdgeInsets.only(bottom: 10.0),
+      child: new Row(
+        verticalDirection: VerticalDirection.down,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          new Text('$index.',
+            textAlign: TextAlign.start,
+            style: new TextStyle(fontSize: 16.0, color: Color(0xFF161616)),
+          ),
+          new Expanded(
+            child: new Padding(
+              padding: const EdgeInsets.only(top: 2.0, left: 5.0),
+              child: new Text(text,
+                maxLines: 10,
+                style: new TextStyle(fontSize: 12.0, color: Color(0xFF161616)),
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
-}
-
-class ArcClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    var path = new Path();
-    path.lineTo(0.0, size.height - 30);
-
-    var firstControlPoint = new Offset(size.width / 4, size.height);
-    var firstPoint = new Offset(size.width / 2, size.height);
-    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
-        firstPoint.dx, firstPoint.dy);
-
-    var secondControlPoint =
-    new Offset(size.width - (size.width / 4), size.height);
-    var secondPoint = new Offset(size.width, size.height - 30);
-    path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
-        secondPoint.dx, secondPoint.dy);
-
-    path.lineTo(size.width, 0.0);
-    path.close();
-
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
