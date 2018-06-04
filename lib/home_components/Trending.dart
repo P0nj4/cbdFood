@@ -3,6 +3,7 @@ import 'package:cbd_food/model/recipe.dart';
 import 'package:cbd_food/utils/rounded_corners_clipper_path.dart';
 import 'package:flutter/material.dart';
 import 'package:cbd_food/managers/recipes_manager.dart';
+import 'package:cbd_food/utils/network_image.dart';
 
 typedef void TrendingRecipeCallback (Recipe recipe);
 
@@ -57,6 +58,7 @@ class Trending extends StatelessWidget {
     for (var i = 0; i < recipes.length; i+=2) {
       if (i + 1 >= recipes.length) return rows;
       Row row = new Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           new Expanded(
             child: new GestureDetector(
@@ -65,7 +67,7 @@ class Trending extends StatelessWidget {
                 children: <Widget>[
                   new ClipPath(
                     clipper: new RoundedCornersClipperPath(cornerRadius: 8.0),
-                    child: new Image.network(recipes[i].imageUrl, height:150.0, fit: BoxFit.cover,),
+                    child: new NetImage(url: recipes[i].imageUrl, height: 150.0),
                   ),
                   new Text(recipes[i].name),
                 ],
@@ -84,7 +86,7 @@ class Trending extends StatelessWidget {
                 children: <Widget>[
                   new ClipPath(
                     clipper: new RoundedCornersClipperPath(cornerRadius: 8.0),
-                    child: new Image.network(recipes[i+1].imageUrl, height:150.0, fit: BoxFit.cover,),
+                    child: new NetImage(url: recipes[i+1].imageUrl, height: 150.0),
                   ),
                   new Text(recipes[i+1].name),
                 ],

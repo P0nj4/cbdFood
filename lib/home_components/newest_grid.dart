@@ -2,6 +2,8 @@ import 'package:cbd_food/managers/recipes_manager.dart';
 import 'package:cbd_food/model/recipe.dart';
 import 'package:flutter/material.dart';
 import 'package:cbd_food/utils/rounded_corners_clipper_path.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cbd_food/utils/network_image.dart';
 
 typedef void NewestRecipeTapCallback (Recipe recipe);
 
@@ -41,9 +43,7 @@ class NewestGrid extends StatelessWidget {
                       height: 100.0,
                       child: new ClipPath(
                         clipper: new RoundedCornersClipperPath(cornerRadius: 8.0),
-                        child: new Image.network(recipes[index].imageUrl,
-                          fit: BoxFit.cover,
-                        ),
+                        child: new NetImage(url: recipes[index].imageUrl),
                       ),
                     ),
                   ),

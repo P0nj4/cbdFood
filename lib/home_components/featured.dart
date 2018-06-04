@@ -2,6 +2,7 @@ import 'package:cbd_food/utils/shadow_text.dart';
 import "package:flutter/material.dart";
 import "package:carousel/carousel.dart";
 import "package:cloud_firestore/cloud_firestore.dart";
+import 'package:cbd_food/utils/network_image.dart';
 
 //TODO: implement callback
 
@@ -35,8 +36,7 @@ class Featured extends StatelessWidget {
           return new Stack(
             alignment: Alignment.center,
             children: <Widget>[
-              new Image.network(doc['image_url'],
-                  height: 220.0, fit: BoxFit.cover),
+              new NetImage(url: doc['image_url'], height: 220.0),
               new ShadowText(doc['name'],
                   style: new TextStyle(
                     color: Colors.white,

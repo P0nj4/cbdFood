@@ -3,6 +3,7 @@ import 'package:cbd_food/model/recipe.dart';
 import 'package:flutter/material.dart';
 import 'package:cbd_food/screens/home.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:cbd_food/utils/network_image.dart';
 
 void main() => runApp(new MyApp());
 
@@ -65,7 +66,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
                 new Stack(
                   fit: StackFit.expand,
                   children: <Widget>[
-                    Image.network(widget.recipe.imageUrl, fit: BoxFit.cover,),
+                    NetImage(url: widget.recipe.imageUrl),
                     const DecoratedBox(
                       decoration: const BoxDecoration(
                         gradient: const LinearGradient(
@@ -96,7 +97,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
                   ),
                 ]),
               ),
-            )
+            ),
           ],
 //        controller: _scrollController,
         ),
@@ -243,7 +244,6 @@ class _IngredientItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Padding(
-      // ignore: const_with_non_constant_argument
       padding: const EdgeInsets.only(top: 7.0),
       child: new Row(
         children: <Widget>[
